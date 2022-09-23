@@ -9,7 +9,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"message": "Let's discover who is the author"}
+    return {"message": "Let's find the author of the book by using  the url/authors/{book_name} and the average rating of all authors by using the url/rating/{author_name}"}
 
 
 #@app.get("/add/{num1}/{num2}")
@@ -30,9 +30,9 @@ async def root():
   #  answer = get_artist(a) 
    # return {"artist": answer}
 
-@app.get("/authors/{a}")
-async def q_authors(a:str):
-    answer = get_book(a) 
+@app.get("/authors/{book_name}")
+async def q_authors(book_name:str):
+    answer = get_book(book_name) 
     return {"authors": answer}
 
 @app.get("/rating/{author_name}")
